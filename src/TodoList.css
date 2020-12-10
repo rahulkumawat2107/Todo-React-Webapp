@@ -1,0 +1,15 @@
+.todoContainer {
+    width: 60%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.todoItem {
+    display: flex;
+    align-items: center;
+}
+
+.todoItem li {
+    width: 80%;
+    list-style: none;
+}

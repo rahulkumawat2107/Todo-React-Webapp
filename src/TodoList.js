@@ -1,4 +1,7 @@
 import React from 'react'
+import './TodoList.css';
+import {Checkbox} from '@material-ui/core';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 function TodoList({text, todo, todos, setTodos, completed}) {
 
@@ -20,9 +23,13 @@ function TodoList({text, todo, todos, setTodos, completed}) {
 
     return (
         <div>
-            <input type="checkbox" checked = {completed} onChange={completeHandle}></input>
+            <div className="todoItem">
+            <Checkbox checked={completed} onChange={completeHandle} />
             <li style={{ textDecoration:` ${todo.completed ? 'line-through' : ''} `}} type="text">{text}</li>
-            <button onClick={deleteHandler}>Delete</button>
+                {/* <input type="checkbox" checked = {completed} onChange={completeHandle}></input>
+                <li style={{ textDecoration:` ${todo.completed ? 'line-through' : ''} `}} type="text">{text}</li> */}
+            <DeleteForeverIcon onClick={deleteHandler}></DeleteForeverIcon>
+            </div>
         </div>
     )
 }

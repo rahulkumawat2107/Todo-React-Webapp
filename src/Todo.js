@@ -1,7 +1,8 @@
-import React from 'react'
-import './Todo.css'
+import React from 'react';
+import { Button, Select, Input, MenuItem } from '@material-ui/core';
+import './Todo.css';
 
-function Todo({inputText, setInputText, todos, setTodos, setfilterValue}) {
+function Todo({inputText, setInputText, todos, setTodos, filterValue, setfilterValue}) {
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
@@ -23,14 +24,16 @@ function Todo({inputText, setInputText, todos, setTodos, setfilterValue}) {
     return (
         <div className="todo_container">
             <form onSubmit={submitTodo}>
-                <input value={inputText} onChange={inputTextHandler} type="text" placeholder="Enter task here"></input>
-                <button type="submit">Submit</button>
+                <Input value={inputText} onChange={inputTextHandler} type="text" placeholder="Enter todo here"></Input>
+                <Button type="submit" disabled = {!inputText}>Submit</Button>
+
+                <Select value={filterValue} onChange={optionHandle}>
+                    <MenuItem value="all">All</MenuItem>
+                    <MenuItem value="completed">Completed</MenuItem>
+                    <MenuItem value="uncompleted">Uncompleted</MenuItem>
+                </Select>
             </form>
-            <select onChange={optionHandle}>
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="uncompleted">Uncompleted</option>
-            </select>
+            
         </div>
     )
 }
