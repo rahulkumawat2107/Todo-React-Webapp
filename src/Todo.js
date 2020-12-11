@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Select, Input, MenuItem } from '@material-ui/core';
 import './Todo.css';
 
-function Todo({inputText, setInputText, todos, setTodos, filterValue, setfilterValue}) {
+function Todo({inputText, setInputText, todos, setTodos, filterValue, setfilterValue, setshowAddItem}) {
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
@@ -15,6 +15,7 @@ function Todo({inputText, setInputText, todos, setTodos, filterValue, setfilterV
             {text: inputText, completed:false, id:Math.random()*1000}
         ])
         setInputText("");
+        setshowAddItem(false);
     }
 
     const optionHandle = (e) => {
@@ -26,12 +27,6 @@ function Todo({inputText, setInputText, todos, setTodos, filterValue, setfilterV
             <form onSubmit={submitTodo}>
                 <Input value={inputText} onChange={inputTextHandler} type="text" placeholder="Enter todo here"></Input>
                 <Button type="submit" disabled = {!inputText}>Submit</Button>
-
-                <Select value={filterValue} onChange={optionHandle}>
-                    <MenuItem value="all">All</MenuItem>
-                    <MenuItem value="completed">Completed</MenuItem>
-                    <MenuItem value="uncompleted">Uncompleted</MenuItem>
-                </Select>
             </form>
             
         </div>

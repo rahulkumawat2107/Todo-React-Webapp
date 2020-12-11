@@ -1,15 +1,29 @@
 .todoContainer {
+    overflow: auto;
     width: 60%;
-    height: 100%;
-    border: 1px solid black;
 }
 
 .todoItem {
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    padding: 2px 16px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 2px;
+    margin: 6px;
+}
+
+.todoItem:hover {
+    transition: 0.3s;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .todoItem li {
     width: 80%;
     list-style: none;
+}
+
+.todoItem DeleteForeverIcon:hover {
+    cursor: pointer;
 }

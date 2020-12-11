@@ -24,11 +24,9 @@ function TodoList({text, todo, todos, setTodos, completed}) {
     return (
         <div>
             <div className="todoItem">
-            <Checkbox checked={completed} onChange={completeHandle} />
-            <li style={{ textDecoration:` ${todo.completed ? 'line-through' : ''} `}} type="text">{text}</li>
-                {/* <input type="checkbox" checked = {completed} onChange={completeHandle}></input>
-                <li style={{ textDecoration:` ${todo.completed ? 'line-through' : ''} `}} type="text">{text}</li> */}
-            <DeleteForeverIcon onClick={deleteHandler}></DeleteForeverIcon>
+                <Checkbox checked={completed} onChange={completeHandle} />
+                <li onClick={completeHandle} style={{ color:` ${todo.completed ? '#696969' : ''} `, textDecoration:` ${todo.completed ? 'line-through' : ''} `}} type="text">{text}</li>
+                <DeleteForeverIcon onClick={deleteHandler}></DeleteForeverIcon>
             </div>
         </div>
     )
